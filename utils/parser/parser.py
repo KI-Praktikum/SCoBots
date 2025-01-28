@@ -22,6 +22,7 @@ def parse_train():
     parser.add_argument("--rgb", action="store_true", help="rgb observation space")
     parser.add_argument("--progress", action="store_true", help="display a progress bar of the training process")
     parser.add_argument("--hud", action="store_true", help="use HUD objects")
+    parser.add_argument("-m", "--mode",type=str, default="ram", help="set object detection method")
 
     opts = parser.parse_args()
 
@@ -81,7 +82,8 @@ def parse_train():
         "rgb": opts.rgb,
         "reward": opts.reward,
         "progress": opts.progress,
-        "hud": opts.hud
+        "hud": opts.hud,
+        "mode": opts.mode
     }
 
 

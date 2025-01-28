@@ -106,6 +106,8 @@ def _get_directory(path, exp_name):
 def main():
     flags_dictionary = utils.parser.parser.parse_train()
 
+    print(flags_dictionary)
+
     exp_name = flags_dictionary["exp_name"]
     n_envs = int(flags_dictionary["environments"])
     n_eval_envs = 4
@@ -148,7 +150,8 @@ def main():
                               silent=silent,
                               reward=flags_dictionary["reward_mode"],
                               refresh_yaml=refresh,
-                              hud=flags_dictionary["hud"]
+                              hud=flags_dictionary["hud"],
+                              mode = flags_dictionary["mode"]
                               )
             env = EpisodicLifeEnv(env=env)
             env = Monitor(env)
